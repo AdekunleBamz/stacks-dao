@@ -9,6 +9,30 @@ cache_dir = "./.cache"
 # path = "contracts/counter.clar"
 # epoch = "latest"
 
+[contracts.dao-core]
+path = "contracts/dao-core.clar"
+epoch = "latest"
+
+[contracts.dao-treasury]
+path = "contracts/dao-treasury.clar"
+epoch = "latest"
+
+[contracts.token]
+path = "contracts/traits/token.trait"
+epoch = "latest"
+
+[contracts.dao-adapter]
+path = "contracts/traits/dao-adapter.trait"
+epoch = "latest"
+
+[contracts.treasury]
+path = "contracts/traits/treasury.trait"
+epoch = "latest"
+
+[contracts.transfer-adapter]
+path = "contracts/adapters/transfer-adapter.clar"
+epoch = "latest"
+
 [repl.analysis]
 passes = ["check_checker"]
 check_checker = { trusted_sender = false, trusted_caller = false, callee_filter = false }
