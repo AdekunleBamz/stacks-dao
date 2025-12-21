@@ -15,3 +15,7 @@ Quick commands for local work on contracts, tests, and the frontend.
 - Install deps: `cd frontend && npm install`
 - Dev server: `npm run dev`
 - Network: configure `NEXT_PUBLIC_STACKS_NETWORK` (see `frontend/.env.example`).
+
+## Troubleshooting
+- If Clarinet fails to start, clear `.clarinet` state or restart the devnet process.
+- For Next.js issues, remove `.next` and restart the dev server.
