@@ -15,3 +15,9 @@ Guidelines for evolving the DAO once deployed. Keep proposals transparent and re
 ## Rollback
 - Keep a rollback proposal ready (old adapter hash or previous parameters).
 - If an execution fails, capture the error in logs and include in a postmortem note.
+
+## Post-upgrade checklist
+- Update `docs/state.md` with new addresses and hashes.
+- Tag the release and link the executed proposal transaction.
+- Verify frontend points to the new adapters or parameters; redeploy if needed.
+- Share change summary in release notes and governance forum.
