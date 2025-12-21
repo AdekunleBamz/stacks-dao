@@ -12,3 +12,10 @@ A minimal DAO prototype for the Stacks ecosystem. It pairs Clarinet smart contra
 
 ## Project status
 This repo is an MVP scaffold. Governance design decisions live in `docs/governance-design.md`, and most Phase 0/1 work is planned in `plan.md` before hardening contracts and UI.
+
+## Getting started
+- Install dependencies for contracts/tests: `npm install`
+- Sanity check contracts: `clarinet check`
+- Run unit tests: `npm test`
+- Frontend: `cd frontend && npm install && npm run dev`
+- Configuration: tweak `settings/Devnet.toml` or `frontend/.env` when wiring network endpoints.
