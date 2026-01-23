@@ -5,6 +5,17 @@
 (define-constant ERR_UNAUTHORIZED u101)
 (define-constant DAO_CORE .dao-core-v1)
 
+(define-map allowed-invokers principal bool)
+
+(define-public (set-allowed-invoker (invoker principal) (allowed bool))
+  (begin
+    (asserts! (is-eq contract-caller DAO_CORE) (err ERR_UNAUTHORIZED))
+    (ok (map-set allowed-invokers invoker allowed))))
+
+(define-private (is-allowed-caller (caller principal))
+  (or (is-eq caller DAO_CORE) (default-to false (map-get? allowed-invokers caller)))
+)
+
 (define-public (execute-stx-transfer (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq contract-caller DAO_CORE) (err ERR_UNAUTHORIZED))
