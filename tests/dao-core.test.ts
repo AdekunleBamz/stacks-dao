@@ -25,7 +25,11 @@ describe("dao-core governance", () => {
     const init = simnet.callPublicFn(
       "dao-treasury-v1",
       "init",
-      [Cl.contractPrincipal(deployer, "transfer-adapter-v1"), Cl.bool(true)],
+      [
+        Cl.contractPrincipal(deployer, "dao-core-v1"),
+        Cl.contractPrincipal(deployer, "transfer-adapter-v1"),
+        Cl.bool(true)
+      ],
       deployer
     );
     expect(init.result).toBeOk(Cl.bool(true));
