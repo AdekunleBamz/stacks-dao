@@ -29,7 +29,7 @@
              ;; Validate that the passed trait matches the payload principal
              (asserts! (is-eq (contract-of token-trait) token-principal) (err ERR_INVALID_KIND))
              (contract-call? .dao-treasury-v1 execute-ft-transfer token-trait (get amount payload) (get recipient payload) (get memo payload)))
-          (err ERR_INVALID_KIND)))))
+          (err ERR_INVALID_KIND))))))
 
 (define-read-only (adapter-hash)
   ;; Return a hash of the adapter code version for integrity verification
