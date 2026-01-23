@@ -21,6 +21,10 @@ const buildPayload = (to: string, amount = 0) =>
 
 describe("dao-core governance", () => {
   const initContracts = () => {
+    // Fund the treasury
+    const treasury = `${deployer}.dao-treasury-v1`;
+    simnet.transferSTX(1000, treasury, deployer);
+
      simnet.callPublicFn(
       "dao-treasury-v1",
       "init",
