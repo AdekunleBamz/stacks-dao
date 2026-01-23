@@ -22,17 +22,27 @@ const buildPayload = (to: string, amount = 0) =>
 describe("dao-core governance", () => {
   // Bootstrap the treasury
   it("initializes treasury whitelist", () => {
-    const init = simnet.callPublicFn(
+    // Initialize Treasury
+    const initTreasury = simnet.callPublicFn(
       "dao-treasury-v1",
       "init",
       [
-        Cl.contractPrincipal(deployer, "dao-core-v1"),
-        Cl.contractPrincipal(deployer, "transfer-adapter-v1"),
+        Cl.contractPrincipal(deployer, "dao-core-v1"), // Governor
+        Cl.contractPrincipal(deployer, "transfer-adapter-v1"), // Adapter
         Cl.bool(true)
       ],
       deployer
     );
-    expect(init.result).toBeOk(Cl.bool(true));
+    expect(initTreasury.result).toBeOk(Cl.bool(true));
+
+    // Initialize Adapter
+    const initAdapter = simnet.callPublicFn(
+      "transfer-adapter-v1",
+      "set-core",
+      [Cl.contractPrincipal(deployer, "dao-core-v1")],
+      deployer
+    );
+    expect(initAdapter.result).toBeOk(Cl.bool(true));
   });
 
   it("accepts both stx-transfer and ft-transfer payloads", () => {
